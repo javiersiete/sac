@@ -68,15 +68,15 @@ Activaremos el firewall del servidor y se agregan los puertos que se utilizarán
 Se ejecutan los siguientes comandos: 
 
     sudo apt update
-    sudo apt install nginx
+    sudo apt -y install nginx
 
 Se valida el estatus de nginx una vez terminado la instalación:
 
-    systemctl status nginx
+    sudo systemctl status nginx
 
 Se habilita el inicio automático del servicio de nginx:
 
-    systemctl enable nginx
+    sudo systemctl enable nginx
 
 ### **- Configuración Nginx**
 Se tiene que agregar el virtual host con el DNS que se defina en el archivo de configuración **default**, ubicado en la ruta **/etc/nginx/sites-available**:
@@ -104,9 +104,8 @@ Es importante y necesario contar con un certificado SSL para garantizar la comun
 
 Una vez que se tenga el certificado de Seguridad de agrega en el mismo archivo mencionado anteriormente con las siguientes líneas:
 
-    ssl_certificate 	/home/cert/cert/nombrecertificado.crt;
+    ssl_certificate     /home/cert/cert/nombrecertificado.crt;
     ssl_certificate_key /home/cert/cert/nombrecertificado.key;
-
 
 Una vez terminada la configuración del archivo, es necesario realizar una recarga del servicio de nginx para que tome los cambios realizados, con el siguiente comando:
 
